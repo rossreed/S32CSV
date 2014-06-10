@@ -22,3 +22,7 @@ S32CSV is a quick and dirty shell script that utilizes the AWS CLI to create a r
     ]
 }
 ```
+##Installation
+```
+git clone git@github.com:rossreed/S32CSV.git
+```

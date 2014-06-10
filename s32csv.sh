@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# The 'D' variable is the delimiter. If you prefer tab seperated format change the valueu of this to "\t" instead.
+# The 'D' variable is the delimiter. If you prefer tab seperated format change the value of this to "\t" instead.
 D="\t"
 
 BUCKETLIST=`aws s3api list-buckets`
