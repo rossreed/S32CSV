@@ -2,13 +2,14 @@
 
 # The 'D' variable is the delimiter. If you prefer tab seperated format change the value of this to "\t" instead.
 D="\t"
+FILEPATH="report.csv"
 
 BUCKETLIST=`aws s3api list-buckets`
 
 TOTAL=`echo $BUCKETLIST | jq '.Buckets[].Name' | wc -l`
 CURRENT=0
 
-echo -e "Bucket Name"$D"Static Website Enabled"$D"Index Document"$D"Error Document"$D"Redirect To Host"$D"Date Created"$D"Region" > report.csv
+echo -e "Bucket Name"$D"Static Website Enabled"$D"Index Document"$D"Error Document"$D"Redirect To Host"$D"Date Created"$D"Region" > $FILEPATH
 for BUCKET in $(echo $BUCKETLIST | jq '.Buckets[].Name' | sed 's/"//g')
 do
     echo -ne "                                                                                \r"
@@ -30,8 +31,8 @@ do
     LOCATION=`aws s3api get-bucket-location --bucket $BUCKET | jq '.LocationConstraint' | sed 's/"//g'`
     fi
     CREATEDATE=`echo $BUCKETLIST | jq -c --arg BN $BUCKET '.Buckets[] | select(.Name == $BN) | .CreationDate' | sed 's/"//g'`
-    echo -e $BUCKET$D$STATICHOSTING$D$INDEXDOC$D$ERRORDOC$D$REDIR$D$CREATEDATE$D$LOCATION >> report.csv
+    echo -e $BUCKET$D$STATICHOSTING$D$INDEXDOC$D$ERRORDOC$D$REDIR$D$CREATEDATE$D$LOCATION >> $FILEPATH
 done
 echo -ne "                                                                                \r"
 echo "Done"
-echo ""
+echo "Report saved to $FILEPATH"
