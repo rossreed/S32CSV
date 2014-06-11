@@ -4,7 +4,7 @@ S32CSV is a quick and dirty shell script that utilizes the AWS CLI to create a r
 * OSX or Linux
 * [AWS CLI](http://aws.amazon.com/cli/)
 * [jq](http://stedolan.github.io/jq/)
-* IAM User with **at least** `s3:ListAllMyBuckets`, `s3:GetBucketLocation`, and `s3:GetBucketWebsite` permission. Here is an example IAM policy that will apply the minimum required permissions.
+* IAM User with **at least** `s3:ListAllMyBuckets`, `s3:GetBucketLocation`, and `s3:GetBucketWebsite` permission on all your buckets. Here is an example IAM policy that will apply the minimum required permissions.
 
 ```json
 {
@@ -32,3 +32,6 @@ git clone git@github.com:rossreed/S32CSV.git
 cd S32CSV/
 ./s32csv.sh
 ```
+## ToDo
+- [ ] Add support for passing arguments such as output path and output format (CSV or TSV)
+- [ ] Better Error Handling
