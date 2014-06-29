@@ -3,10 +3,10 @@
 ### START SETTINGS VARIABLES ###
 # The 'REPORTOBJECTS' varialbe must be set to either 'true' or 'false' if set to true, the script will create a directory called 'objects' in which it will place a CSV for each bucket, containing every object in that bucket with it's URL. If a bucket is empty no report is created for it
 # WARNING: if this is set to true and you have any buckets with a large number of objects, it could take a significant amount of time for this script to run
-REPORTOBJECTS=true
+REPORTOBJECTS=false
 # The 'D' variable is the delimiter. If you prefer tab seperated format change the value of this to "\t" instead.
 D=","
-# The 'FILEPATH' is where to put all the files, by default this is the current working directory, if y ou'd like the files to go somwhere else instead change the value for this, for example: FILEPATH="/path/to/put/files"
+# The 'FILEPATH' is where to put all the files, by default this is the current working directory, if you'd like the files to go somwhere else instead change the value for this, for example: FILEPATH="/path/to/put/files"
 FILEPATH=`pwd`"/s3report"
 ### END SETTINGS VARIABLES ###
 
